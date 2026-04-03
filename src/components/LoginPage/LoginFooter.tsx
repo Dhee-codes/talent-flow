@@ -1,0 +1,13 @@
+export default function LoginFooter() {
+  return (
+    <div>
+      <p className="mt-6 text-[15px] text-gray-500 leading-relaxed">
+        By Continuing, you agree to our <strong className="text-gray-600 font-medium">Privacy Policy</strong> &amp; <strong className="text-gray-600 font-medium">Terms and Conditions.</strong>
+      </p>
+      <div className="flex items-center justify-center gap-1 mt-3">
+        <span className="text-[15px] text-gray-500">Don't have an account?</span>
+        <button type="button" className="text-[13px] font-medium text-[#6090FA] hover:underline cursor-pointer">Sign up</button>
+      </div>
+    </div>
+  );
+}
