@@ -9,7 +9,7 @@ export function ThemeSettings() {
       </div>
 
       <div className="flex justify-end mb-4 pr-1">
-        <img src="/images/theme-preview.png" alt="Theme Preview" className="w-[236px] h-auto object-contain" />
+        <img src="/images/theme-preview.png" alt="Theme Preview" className="w-59 h-auto object-contain" />
       </div>
 
       <div className="flex w-full items-center justify-between space-x-3">

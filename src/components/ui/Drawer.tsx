@@ -1,5 +1,5 @@
+import logo from "../../assets/logo.svg";
 import { X } from "lucide-react";
-import { Logo } from "../Logo";
 import { Link } from "react-router-dom";
 
 type DrawerProps = {
@@ -10,7 +10,7 @@ type DrawerProps = {
 
 const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
   return (
-    <>
+    <div className="md:hidden">
       {/* The Backdrop/Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-40 bg-backgrond/30 backdrop-blur-sm transition-opacity duration-300" />
@@ -36,26 +36,67 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
         {/* Drawer panel */}
         <div id="mobile-menu">
           {/* Links */}
-          <div className="flex flex-col gap-8 bg-card h-full w-4/5 px-6 pt-16.5">
-            <Logo />
+          <div className="flex flex-col gap-8 bg-card h-screen w-4/5 px-6 pt-16.5">
+            <Link to="/">
+              <img
+                src={logo}
+                alt="TalentFlow"
+                className="w-20 h-auto"
+              />
+            </Link>
 
             {isAuthenticated ? (
               <div className="flex flex-col gap-9 p-3 text-base leading-6 -tracking-[0.02em] font-medium">
-                <Link to="/dashboard">Dashboard</Link>
-                <Link to="/courses">My Courses</Link>
-                <Link to="/assignment">Profile</Link>
-                <Link to="/progress">Learning Progress</Link>
-                <Link to="/chat">Chat</Link>
+                <Link
+                  to="/dashboard"
+                  className="hover:text-accent transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  to="/courses"
+                  className="hover:text-accent transition-colors"
+                >
+                  My Courses
+                </Link>
+                <Link
+                  to="/assignment"
+                  className="hover:text-accent transition-colors"
+                >
+                  Profile
+                </Link>
+                <Link
+                  to="/progress"
+                  className="hover:text-accent transition-colors"
+                >
+                  Learning Progress
+                </Link>
+                <Link
+                  to="/chat"
+                  className="hover:text-accent transition-colors"
+                >
+                  Chat
+                </Link>
               </div>
             ) : (
               <>
                 <div className="flex flex-col gap-9 p-3 text-base leading-6 -tracking-[0.02em] font-medium">
-                  <Link to="/explore">Explore</Link>
-                  <Link to="/help">Help and Support</Link>
+                  <Link
+                    to="/explore"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Explore
+                  </Link>
+                  <Link
+                    to="/help"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Help and Support
+                  </Link>
                 </div>
                 <Link
                   to="/login"
-                  className="w-full text-center bg-primary text-primary-foreground text-base font-sans px-12.5 py-3.75 rounded-lg"
+                  className="w-full text-center bg-primary hover:bg-accent text-primary-foreground text-base font-sans px-12.5 py-3.75 rounded-lg"
                 >
                   Login
                 </Link>
@@ -64,7 +105,7 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,18 +1,24 @@
-import { Navbar } from './components/layout/Navbar'
-import { Footer } from './components/layout/Footer'
-import { SettingsLayout } from './components/security/SettingsLayout'
-import { SecurityMain } from './components/security/SecurityMain'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import Security from "./pages/Security";
+import Logout from "./pages/Logout";
 
-function App() {
-  return (
-    <div className="min-h-screen flex flex-col font-sans bg-[#F9FAFB]">
-      <Navbar />
-      <SettingsLayout>
-        <SecurityMain />
-      </SettingsLayout>
-      <Footer />
-    </div>
-  )
-}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'security', element: <Security /> },
+    ]
+  },
+  { path: 'logout', element: <Logout /> },
+]);
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;
