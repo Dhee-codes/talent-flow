@@ -46,7 +46,7 @@ export function ActiveSessions() {
                 className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
               >
                 <td className="px-4 py-4 flex items-center space-x-2">
-                  <div className="w-5 h-5 rounded-full conic-gradient-custom relative overflow-hidden flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full conic-gradient-custom relative overflow-hidden shrink-0">
                     {/* Fake Chrome icon-like shape */}
                     <div className="absolute inset-0 bg-red-500 rounded-t-full"></div>
                     <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-yellow-400"></div>
