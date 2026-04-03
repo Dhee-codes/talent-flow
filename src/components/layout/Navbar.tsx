@@ -1,92 +1,87 @@
-import { Search, ShoppingCart, Bell } from "lucide-react";
+import { useState } from "react";
+import { Logo } from "../Logo";
+import { SearchBar } from "../ui/SearchBar";
+import { HamburgerToggle } from "../ui/HamburgerToggle";
+import { Link } from "react-router-dom";
+import Drawer from "../ui/Drawer";
+import { ShoppingCart } from "lucide-react";
 
-export function Navbar() {
+const HeaderLeft = ({ onMenuClick, isOpen }: { onMenuClick: () => void, isOpen: boolean }) => {
   return (
-    <nav className="bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
-      <div className="flex items-center space-x-12">
-        <div className="flex items-center space-x-2 text-blue-500 font-bold text-xl">
-          <div className="w-8 h-8 rounded bg-blue-100 flex items-center justify-center">
-            <svg
-              width="26"
-              height="25"
-              viewBox="0 0 26 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11.1209 6.86185C11.1209 9.81366 11.1209 12.7186 11.1209 15.6201C11.1209 18.3106 12.8333 20.1299 15.3988 20.1366C18.5776 20.1433 21.7564 20.1366 24.9352 20.1366C25.1461 20.1366 25.3601 20.1366 25.6093 20.1366V24.8943C25.4815 24.901 25.3505 24.9178 25.2164 24.9178C21.8395 24.9178 18.4626 24.9345 15.0889 24.9178C10.45 24.8943 6.60348 20.8838 6.56514 16.0289C6.54278 13.0938 6.55875 10.1588 6.55875 7.22371C6.55875 7.11314 6.55875 7.00592 6.55875 6.86185H11.1241H11.1209Z"
-                fill="#6090FA"
-              />
-              <path d="M0 4.72758V0H25.6351V4.72758H0Z" fill="#6090FA" />
-              <path
-                d="M15.3125 6.77482C16.8268 6.77482 18.3124 6.77482 19.8204 6.77482C19.8204 9.9377 19.8204 13.0905 19.8204 16.2534C18.3156 16.2534 16.83 16.2534 15.3125 16.2534C15.3125 13.0972 15.3125 9.94441 15.3125 6.77482Z"
-                fill="#6090FA"
-              />
-            </svg>
-          </div>
-          <svg
-            width="35"
-            height="9"
-            viewBox="0 0 35 9"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3.48842 2.68101V3.52389H2.34407V7H1.29201V3.52389H0.147658V2.68101H3.48842ZM3.80724 5.27732C3.80724 4.92459 3.87286 4.61491 4.00411 4.34831C4.13947 4.08171 4.32199 3.87663 4.55168 3.73307C4.78137 3.58951 5.03772 3.51773 5.32073 3.51773C5.56273 3.51773 5.77396 3.56695 5.95443 3.66539C6.139 3.76383 6.28051 3.89303 6.37895 4.05299V3.56695H7.43101V7H6.37895V6.51396C6.27641 6.67392 6.13285 6.80312 5.94828 6.90156C5.76781 7 5.55657 7.04922 5.31458 7.04922C5.03567 7.04922 4.78137 6.97744 4.55168 6.83388C4.32199 6.68623 4.13947 6.4791 4.00411 6.21249C3.87286 5.94179 3.80724 5.63006 3.80724 5.27732ZM6.37895 5.28348C6.37895 5.02097 6.30512 4.81384 6.15746 4.66208C6.0139 4.51032 5.83753 4.43444 5.62835 4.43444C5.41917 4.43444 5.24075 4.51032 5.09309 4.66208C4.94954 4.80974 4.87776 5.01482 4.87776 5.27732C4.87776 5.53983 4.94954 5.74901 5.09309 5.90487C5.24075 6.05663 5.41917 6.13251 5.62835 6.13251C5.83753 6.13251 6.0139 6.05663 6.15746 5.90487C6.30512 5.75311 6.37895 5.54598 6.37895 5.28348ZM9.24419 2.44721V7H8.19213V2.44721H9.24419ZM13.2428 5.22811C13.2428 5.32654 13.2366 5.42908 13.2243 5.53573H10.8433C10.8597 5.74901 10.9274 5.91307 11.0464 6.02792C11.1694 6.13866 11.3191 6.19403 11.4955 6.19403C11.758 6.19403 11.9405 6.08329 12.0431 5.8618H13.1628C13.1054 6.08739 13.0008 6.29042 12.849 6.47089C12.7014 6.65136 12.5147 6.79287 12.2892 6.89541C12.0636 6.99795 11.8113 7.04922 11.5324 7.04922C11.1961 7.04922 10.8967 6.97744 10.6342 6.83388C10.3717 6.69033 10.1666 6.48525 10.0189 6.21864C9.87126 5.95204 9.79743 5.64032 9.79743 5.28348C9.79743 4.92664 9.86921 4.61491 10.0128 4.34831C10.1604 4.08171 10.3655 3.87663 10.628 3.73307C10.8905 3.58951 11.192 3.51773 11.5324 3.51773C11.8646 3.51773 12.16 3.58746 12.4184 3.72692C12.6768 3.86637 12.8777 4.0653 13.0213 4.3237C13.169 4.5821 13.2428 4.88357 13.2428 5.22811ZM12.1661 4.95125C12.1661 4.77078 12.1046 4.62722 11.9815 4.52058C11.8585 4.41394 11.7047 4.36061 11.5201 4.36061C11.3437 4.36061 11.194 4.41189 11.071 4.51443C10.952 4.61697 10.8782 4.76257 10.8495 4.95125H12.1661ZM15.8896 3.53004C16.2916 3.53004 16.6115 3.66129 16.8494 3.92379C17.0914 4.1822 17.2124 4.53903 17.2124 4.99431V7H16.1665V5.13582C16.1665 4.90613 16.107 4.72771 15.9881 4.60056C15.8691 4.47341 15.7091 4.40983 15.5082 4.40983C15.3072 4.40983 15.1472 4.47341 15.0283 4.60056C14.9093 4.72771 14.8499 4.90613 14.8499 5.13582V7H13.7978V3.56695H14.8499V4.02223C14.9565 3.87047 15.1001 3.75153 15.2805 3.66539C15.461 3.57516 15.664 3.53004 15.8896 3.53004ZM19.8569 6.1079V7H19.3216C18.9402 7 18.6428 6.90771 18.4295 6.72314C18.2162 6.53447 18.1096 6.2289 18.1096 5.80643V4.4406H17.6912V3.56695H18.1096V2.73023H19.1616V3.56695H19.8507V4.4406H19.1616V5.81874C19.1616 5.92128 19.1863 5.99511 19.2355 6.04022C19.2847 6.08534 19.3667 6.1079 19.4816 6.1079H19.8569ZM23.2545 2.68101V3.52389H21.4949V4.43444H22.8116V5.25271H21.4949V7H20.4429V2.68101H23.2545ZM24.8595 2.44721V7H23.8075V2.44721H24.8595ZM27.1847 7.04922C26.8483 7.04922 26.5448 6.97744 26.2741 6.83388C26.0075 6.69033 25.7963 6.48525 25.6404 6.21864C25.4887 5.95204 25.4128 5.64032 25.4128 5.28348C25.4128 4.93074 25.4907 4.62107 25.6466 4.35446C25.8024 4.08376 26.0157 3.87663 26.2864 3.73307C26.5571 3.58951 26.8606 3.51773 27.197 3.51773C27.5333 3.51773 27.8368 3.58951 28.1075 3.73307C28.3782 3.87663 28.5915 4.08376 28.7474 4.35446C28.9032 4.62107 28.9812 4.93074 28.9812 5.28348C28.9812 5.63622 28.9012 5.94794 28.7412 6.21864C28.5854 6.48525 28.37 6.69033 28.0952 6.83388C27.8245 6.97744 27.521 7.04922 27.1847 7.04922ZM27.1847 6.13866C27.3857 6.13866 27.5559 6.06483 27.6953 5.91718C27.8389 5.76952 27.9107 5.55828 27.9107 5.28348C27.9107 5.00867 27.8409 4.79744 27.7015 4.64978C27.5661 4.50212 27.398 4.42829 27.197 4.42829C26.9919 4.42829 26.8217 4.50212 26.6863 4.64978C26.551 4.79333 26.4833 5.00457 26.4833 5.28348C26.4833 5.55828 26.5489 5.76952 26.6802 5.91718C26.8155 6.06483 26.9837 6.13866 27.1847 6.13866ZM34.4674 3.56695L33.5384 7H32.3756L31.8342 4.77283L31.2743 7H30.1176L29.1825 3.56695H30.2345L30.7206 6.02177L31.2989 3.56695H32.4125L32.997 6.00946L33.4769 3.56695H34.4674Z"
-              fill="#6090FA"
-            />
-          </svg>
-        </div>
+    <div className="flex items-baseline gap-4.5 md:mr-11">
+      <HamburgerToggle onClick={onMenuClick} isOpen={isOpen} />
 
-        <div className="hidden md:flex space-x-6 text-gray-600 font-medium text-sm">
-          <a href="#" className="hover:text-blue-500 transition-colors">
-            Dashboard
-          </a>
-          <a href="#" className="hover:text-blue-500 transition-colors">
-            My Course
-          </a>
-          <a href="#" className="hover:text-blue-500 transition-colors">
-            Assignment
-          </a>
-          <a href="#" className="hover:text-blue-500 transition-colors">
-            Learning Progress
-          </a>
-          <a href="#" className="hover:text-blue-500 transition-colors">
-            Chat
-          </a>
-        </div>
+      <Logo />
+    </div>
+  );
+};
+
+const LoginBtn = () => {
+  return (
+    <Link
+      to="/login"
+      className="hidden md:block bg-primary hover:bg-accent text-primary-foreground text-base font-sans px-12.5 py-3.75 rounded-lg"
+    >
+      Login
+    </Link>
+  );
+};
+
+const GuestNav = ({
+  onMenuClick,
+  isOpen,
+  isAuthenticated,
+}: {
+  onMenuClick: () => void;
+  isOpen: boolean;
+  isAuthenticated: boolean;
+}) => {
+  return (
+    <>
+      <HeaderLeft onMenuClick={onMenuClick} isOpen={isOpen} />
+
+      <SearchBar isAuthenticated={isAuthenticated} />
+
+      <div className="flex-1 hidden md:block" />
+
+      <LoginBtn />
+    </>
+  );
+};
+
+const AuthNav = ({
+  onMenuClick,
+  isOpen,
+  isAuthenticated,
+}: {
+  onMenuClick: () => void;
+  isOpen: boolean;
+  isAuthenticated: boolean;
+}) => {
+  return (
+    <>
+      <HeaderLeft onMenuClick={onMenuClick} isOpen={isOpen} />
+
+      <div className="flex-1 hidden md:flex justify-evenly gqp-2 flex-wrap text-lg leading-6 -tracking-[0.02em] font-medium">
+        <Link to="/dashboard" className="hover:text-accent transition-colors">
+          Dashboard
+        </Link>
+        <Link to="/courses" className="hover:text-accent transition-colors">
+          My Course
+        </Link>
+        <Link to="/assignment" className="hover:text-accent transition-colors">
+          Assignment
+        </Link>
+        <Link to="/progress" className="hover:text-accent transition-colors">
+          Learning Progress
+        </Link>
+        <Link to="/chat" className="hover:text-accent transition-colors">
+          Chat
+        </Link>
       </div>
 
       <div className="flex items-center space-x-6">
-        <div className="relative">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="h-4 w-4 text-gray-400" />
-          </div>
-          <input
-            type="text"
-            placeholder="Search for a Course"
-            className="pl-10 pr-10 py-2 border border-gray-200 rounded-lg text-sm w-64 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 bg-gray-50/50"
-          />
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5  flex items-center justify-center ">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                opacity="0.2"
-                x="2"
-                y="2"
-                width="16"
-                height="16"
-                rx="3"
-                fill="#111827"
-              />
-            </svg>
-          </div>
-        </div>
+        <SearchBar isAuthenticated={isAuthenticated} />
 
         <button className="text-gray-500 hover:text-gray-700">
           <ShoppingCart className="w-5 h-5" />
@@ -198,6 +193,39 @@ export function Navbar() {
           />
         </svg>
       </div>
-    </nav>
+    </>
   );
-}
+};
+
+const Navbar = () => {
+  const [isAuthenticated] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  return (
+    <header>
+      <nav className="flex items-center justify-between px-8 md:px-14 lg:px-20 py-6">
+        {isAuthenticated ? (
+          <AuthNav
+            onMenuClick={() => setDrawerOpen(true)}
+            isOpen={drawerOpen}
+            isAuthenticated={isAuthenticated}
+          />
+        ) : (
+          <GuestNav
+            onMenuClick={() => setDrawerOpen(true)}
+            isOpen={drawerOpen}
+            isAuthenticated={isAuthenticated}
+          />
+        )}
+      </nav>
+
+      <Drawer
+        isOpen={drawerOpen}
+        isAuthenticated={isAuthenticated}
+        onClose={() => setDrawerOpen(false)}
+      />
+    </header>
+  );
+};
+
+export default Navbar;

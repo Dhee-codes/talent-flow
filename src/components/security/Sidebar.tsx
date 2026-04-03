@@ -1,8 +1,6 @@
-import { Share2 } from "lucide-react";
-
 export function Sidebar() {
   return (
-    <div className="w-[280px] shrink-0 bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col items-center">
+    <div className="w-70 shrink-0 bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col items-center">
       <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border border-gray-200 object-cover bg-gray-100">
         <img
           src="/images/profile.png"
@@ -33,7 +31,7 @@ export function Sidebar() {
         </svg>
       </button>
 
-      <nav className="w-full flex flex-col w-full text-sm font-medium">
+      <nav className="w-full flex flex-col text-sm font-medium">
         <a
           href="#"
           className="py-3 px-4 text-gray-600 hover:bg-gray-50 rounded-lg transition-colors text-left border-b border-gray-50"
