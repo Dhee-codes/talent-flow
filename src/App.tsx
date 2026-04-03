@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Security from "./pages/Security";
 import Logout from "./pages/Logout";
+import LoginPage from "./pages/Login/LoginPage";
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     ]
   },
   { path: 'logout', element: <Logout /> },
+ { path: "login", element: <LoginPage /> },
 ]);
 
 const App = () => {
