@@ -16,7 +16,7 @@ export const HamburgerToggle = ({
         aria-controls="mobile-menu"
         onClick={onClick}
       >
-        <Menu aria-hidden="true" className="w-8 h-8" />
+        <Menu aria-hidden="true" className="w-7 h-7" />
       </button>
     </div>
   );

@@ -5,7 +5,7 @@ export const SearchBar = ({ isAuthenticated }: {isAuthenticated: boolean }) => {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="relative min-w-6 ml-2">
+    <div className="relative ml-2">
       <div className="hidden lg:flex items-center pl-15.5 gap-8">
         <label
           htmlFor="search-course"
@@ -23,7 +23,7 @@ export const SearchBar = ({ isAuthenticated }: {isAuthenticated: boolean }) => {
           className="text-sm leading-4 font-sans text-text-muted placeholder:text-text-muted bg-card rounded-lg pl-3 pr-16 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
         />
       </div>
-      <Search className="absolute right-3.75 top-1/2 -translate-y-1/2 h-5 w-5 text-text-muted" />
+      <Search className="absolute right-0 md:right-3.75 top-1/2 -translate-y-1/2 h-5 w-5 text-text-muted" />
     </div>
   );
 };

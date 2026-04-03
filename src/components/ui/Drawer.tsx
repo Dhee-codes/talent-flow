@@ -1,5 +1,5 @@
+import logo from "../../assets/logo.svg";
 import { X } from "lucide-react";
-import { Logo } from "../Logo";
 import { Link } from "react-router-dom";
 
 type DrawerProps = {
@@ -37,21 +37,62 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
         <div id="mobile-menu">
           {/* Links */}
           <div className="flex flex-col gap-8 bg-card h-screen w-4/5 px-6 pt-16.5">
-            <Logo />
+            <Link to="/">
+              <img
+                src={logo}
+                alt="TalentFlow"
+                className="w-20 h-auto"
+              />
+            </Link>
 
             {isAuthenticated ? (
               <div className="flex flex-col gap-9 p-3 text-base leading-6 -tracking-[0.02em] font-medium">
-                <Link to="/dashboard" className="hover:text-accent transition-colors">Dashboard</Link>
-                <Link to="/courses" className="hover:text-accent transition-colors">My Courses</Link>
-                <Link to="/assignment" className="hover:text-accent transition-colors">Profile</Link>
-                <Link to="/progress" className="hover:text-accent transition-colors">Learning Progress</Link>
-                <Link to="/chat" className="hover:text-accent transition-colors">Chat</Link>
+                <Link
+                  to="/dashboard"
+                  className="hover:text-accent transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  to="/courses"
+                  className="hover:text-accent transition-colors"
+                >
+                  My Courses
+                </Link>
+                <Link
+                  to="/assignment"
+                  className="hover:text-accent transition-colors"
+                >
+                  Profile
+                </Link>
+                <Link
+                  to="/progress"
+                  className="hover:text-accent transition-colors"
+                >
+                  Learning Progress
+                </Link>
+                <Link
+                  to="/chat"
+                  className="hover:text-accent transition-colors"
+                >
+                  Chat
+                </Link>
               </div>
             ) : (
               <>
                 <div className="flex flex-col gap-9 p-3 text-base leading-6 -tracking-[0.02em] font-medium">
-                  <Link to="/explore" className="hover:text-accent transition-colors">Explore</Link>
-                  <Link to="/help" className="hover:text-accent transition-colors">Help and Support</Link>
+                  <Link
+                    to="/explore"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Explore
+                  </Link>
+                  <Link
+                    to="/help"
+                    className="hover:text-accent transition-colors"
+                  >
+                    Help and Support
+                  </Link>
                 </div>
                 <Link
                   to="/login"
