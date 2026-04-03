@@ -11,7 +11,7 @@ const Layout = () => {
   return (
     <div className='flex flex-col min-h-screen'>
       {!hideLayout && <Navbar />}
-      <main className='flex-1'>
+      <main className='flex-1 relative'>
         <Outlet />
       </main>
       {!hideLayout && <Footer />}
