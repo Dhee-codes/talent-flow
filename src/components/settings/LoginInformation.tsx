@@ -1,7 +1,7 @@
 export function LoginInformation() {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
-      <div className="flex items-center space-x-2 text-gray-700 font-semibold text-lg pb-4 border-b border-gray-100 mb-6">
+    <section className="mb-6 rounded-3xl border border-[#E9E7E2] bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-200 ease-out hover:border-[#DCE6FF] hover:shadow-[0_16px_40px_rgba(90,140,255,0.08)]">
+      <div className="mb-6 flex items-center space-x-2 rounded-2xl border border-[#E5E7EB] px-4 py-3 text-lg font-semibold text-gray-700">
         <svg
           width="34"
           height="37"
@@ -32,14 +32,14 @@ export function LoginInformation() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M6.25003 5C6.25003 2.92893 7.92896 1.25 10 1.25C12.0711 1.25 13.75 2.92893 13.75 5C13.75 7.07107 12.0711 8.75 10 8.75C7.92896 8.75 6.25003 7.07107 6.25003 5Z"
                   fill="#1F2937"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M3.12607 16.7544C3.19052 13.013 6.24335 10 10 10C13.7568 10 16.8097 13.0131 16.874 16.7547C16.8783 17.0028 16.7353 17.23 16.5097 17.3335C14.5273 18.2432 12.3221 18.75 10.0003 18.75C7.67825 18.75 5.47289 18.2431 3.4903 17.3332C3.26474 17.2297 3.1218 17.0026 3.12607 16.7544Z"
                   fill="#1F2937"
                 />
@@ -48,7 +48,7 @@ export function LoginInformation() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="block flex-1 w-full pl-10 pr-3 py-2.5 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full rounded-xl border border-[#E5E7EB] bg-white py-3 pr-4 pl-10 text-sm text-gray-900 transition-all duration-200 ease-out placeholder:text-[#A0AEC0] hover:border-[#C9D7FF] focus:border-[#5A8CFF] focus:outline-none focus:ring-4 focus:ring-[#5A8CFF]/10"
             />
           </div>
         </div>
@@ -57,16 +57,16 @@ export function LoginInformation() {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Phone Number
           </label>
-          <div className="relative flex rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-            <span className="inline-flex items-center px-3 border-r border-gray-200 bg-gray-50 text-gray-500 text-sm">
+          <div className="relative flex overflow-hidden rounded-xl border border-[#E5E7EB] bg-white shadow-sm transition-all duration-200 ease-out hover:border-[#C9D7FF] focus-within:border-[#5A8CFF] focus-within:ring-4 focus-within:ring-[#5A8CFF]/10">
+            <span className="inline-flex items-center border-r border-[#E5E7EB] bg-[#F9FAFB] px-3 text-sm text-gray-500">
               +234
             </span>
             <input
               type="text"
               placeholder="(000) 000-0000"
-              className="flex-1 block w-full px-3 py-2.5 text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              className="block w-full flex-1 px-3 py-3 text-sm text-gray-900 placeholder:text-[#A0AEC0] focus:outline-none"
             />
-            <button className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600">
+            <button className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 transition-colors duration-200 hover:text-[#3E6FE6]">
               {/* <Pencil className="h-4 w-4" /> */}
               <svg
                 width="20"
@@ -90,10 +90,10 @@ export function LoginInformation() {
       </div>
 
       <div className="flex justify-end">
-        <button className="bg-[#5A8CFF] hover:bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+        <button className="rounded-xl bg-[#5A8CFF] px-6 py-3 text-sm font-medium text-white shadow-[0_14px_30px_rgba(90,140,255,0.25)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#4B7FF6] hover:shadow-[0_18px_34px_rgba(90,140,255,0.32)]">
           Change Password
         </button>
       </div>
-    </div>
+    </section>
   );
 }

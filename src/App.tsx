@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Security from "./pages/Security";
+import Settings from "./pages/Settings";
 import Logout from "./pages/Logout";
 import LoginPage from "./pages/Login/LoginPage";
 
@@ -12,11 +12,16 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'security', element: <Security /> },
-    ]
+      { path: "Settings", element: <Settings /> },
+    ],
   },
-  { path: 'logout', element: <Logout /> },
- { path: "login", element: <LoginPage /> },
+  {
+    path: "/",
+    children: [
+      { path: "logout", element: <Logout /> },
+      { path: "login", element: <LoginPage /> },
+    ],
+  },
 ]);
 
 const App = () => {
