@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Logout from "./pages/Logout";
 import LoginPage from "./pages/Login/LoginPage";
+import LearningProgress from "./pages/LearningProgress";
 
 
 const router = createBrowserRouter([
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "Settings", element: <Settings /> },
+      { path: "progress", element: <LearningProgress /> },
     ],
   },
   {
