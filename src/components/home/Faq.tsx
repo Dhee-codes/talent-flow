@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Faq = () => {
+export const Faq = () => {
     const [openIndex, setOpenIndex] = React.useState<number | null>(null);
     const faqsData = [
         {
@@ -48,5 +48,3 @@ const Faq = () => {
     </>
   )
 }
-
-export default Faq
