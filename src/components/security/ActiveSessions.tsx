@@ -15,8 +15,8 @@ export function ActiveSessions() {
   ];
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-      <div className="flex items-center space-x-2 font-semibold text-lg pb-4 border-b border-gray-100 mb-6 text-gray-700">
+    <section className="rounded-[24px] border border-[#E9E7E2] bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-200 ease-out hover:border-[#DCE6FF] hover:shadow-[0_16px_40px_rgba(90,140,255,0.08)]">
+      <div className="mb-6 flex items-center space-x-2 border-b border-gray-100 pb-4 text-lg font-semibold text-gray-700">
         <MonitorSmartphone className="w-5 h-5 text-gray-500" />
         <h3>Active Sessions</h3>
       </div>
@@ -43,7 +43,7 @@ export function ActiveSessions() {
             {sessions.map((session, index) => (
               <tr
                 key={index}
-                className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
+                className="border-b border-gray-50 transition-colors duration-200 hover:bg-[#F8FAFF]"
               >
                 <td className="px-4 py-4 flex items-center space-x-2">
                   <div className="w-5 h-5 rounded-full conic-gradient-custom relative overflow-hidden shrink-0">
@@ -62,7 +62,7 @@ export function ActiveSessions() {
                   {session.lastActive}
                 </td>
                 <td className="px-4 py-4 text-gray-500">
-                  <button className="text-gray-500 hover:text-gray-800 font-medium">
+                  <button className="font-medium text-gray-500 transition-colors duration-200 hover:text-[#3E6FE6]">
                     Log out
                   </button>
                 </td>
@@ -71,6 +71,6 @@ export function ActiveSessions() {
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
   );
 }
