@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 export function Sidebar() {
   const navItemClass =
     "group flex w-full items-center rounded-xl px-4 py-3 text-left text-sm font-medium transition-all duration-200 ease-out";
 
   return (
-    <aside className="w-full shrink-0 self-start rounded-[28px] border border-[#E9E7E2] bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] sm:max-w-[292px]">
+    <aside className="w-full shrink-0 self-start rounded-[28px] border border-[#E9E7E2] bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] sm:max-w-73">
       <div className="flex flex-col items-center">
         <div className="mb-4 h-40 w-40 overflow-hidden rounded-full border border-[#E3E7EF] bg-gray-100 object-cover shadow-[0_10px_24px_rgba(15,23,42,0.08)]">
           <img
@@ -37,32 +39,32 @@ export function Sidebar() {
       </div>
 
       <nav className="w-full border-t border-[#EEF1F5] pt-6 text-sm font-medium">
-        <a
-          href="#"
+        <Link
+          to="/profile"
           className={`${navItemClass} text-[#6B7280] hover:-translate-y-0.5 hover:bg-[#F8FAFF] hover:text-[#3E6FE6]`}
         >
           Profile
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/settings"
           className={`${navItemClass} my-1 bg-[#5A8CFF] text-white shadow-[0_14px_30px_rgba(90,140,255,0.25)]`}
         >
           Settings
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/logout"
           className={`${navItemClass} text-[#6B7280] hover:-translate-y-0.5 hover:bg-[#F8FAFF] hover:text-[#3E6FE6]`}
         >
           Log out
-        </a>
+        </Link>
         <div className="my-3 border-t border-[#EEF1F5]" />
-        <a
-          href="#"
+        <Link
+          to="/delete-profile"
           className={`${navItemClass} text-[#7C8798] hover:bg-[#FFF7F7] hover:text-[#D14343]`}
         >
           Delete Profile
-        </a>
+        </Link>
       </nav>
     </aside>
   );
-}
+};
