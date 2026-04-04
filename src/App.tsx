@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Logout from "./pages/Logout";
 import Login from "./pages/Login";
+import Search from "./pages/Search";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       { path: "logout", element: <Logout /> },
       { path: "login", element: <Login /> },
     ],
+  },
+  {
+    path: "/",
+    children: [{ path: "search", element: <Search /> }],
   },
 ]);
 

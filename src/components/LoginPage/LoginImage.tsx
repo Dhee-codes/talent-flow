@@ -1,4 +1,4 @@
-import LoginPicture from "../../assets/Rectangle 1137.png";
+import LoginPicture from "../../assets/images/auth/auth.png";
 export default function LoginImage() {
   return (
     <div className="relative h-full w-full max-w-117.5 overflow-hidden py-10">
