@@ -1,7 +1,7 @@
 export function TwoFactorAuth() {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
-      <div className="flex items-center space-x-2 font-semibold text-lg pb-4 border-b border-gray-100 mb-4 text-gray-700">
+    <section className="mb-6 rounded-3xl border border-[#E9E7E2] bg-white p-6 shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-200 ease-out hover:border-[#DCE6FF] hover:shadow-[0_16px_40px_rgba(90,140,255,0.08)]">
+      <div className="mb-4 flex items-center space-x-2 border-b border-gray-100 pb-4 text-lg font-semibold text-gray-700">
         {/* <ShieldCheck className="w-6 h-6 text-green-500" strokeWidth={2.5} /> */}
         <svg
           width="40"
@@ -29,10 +29,10 @@ export function TwoFactorAuth() {
       </p>
 
       <div className="flex justify-end">
-        <button className="bg-[#5A8CFF] hover:bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
-          Manager 2FA
+        <button className="rounded-xl bg-[#5A8CFF] px-6 py-3 text-sm font-medium text-white shadow-[0_14px_30px_rgba(90,140,255,0.25)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#4B7FF6] hover:shadow-[0_18px_34px_rgba(90,140,255,0.32)]">
+          Manage 2FA
         </button>
       </div>
-    </div>
+    </section>
   );
 }
