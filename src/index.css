@@ -8,6 +8,7 @@
     --accent: #6b98fa;
     --card: #ffffff;
     --text-muted: #6B7280;
+     --text-heading:#07142f;
 }
 
 @theme {
@@ -21,6 +22,7 @@
     --color-accent: var(--accent);
     --color-card: var(--card);
     --color-text-muted: var(--text-muted);
+    --color-text-heading: var(--text-heading);
 }
 
 body {
