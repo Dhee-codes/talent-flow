@@ -1,7 +1,7 @@
 import LoginPicture from "../../assets/Rectangle 1137.png";
 export default function LoginImage() {
   return (
-    <div className="relative h-full w-full max-w-[470px] overflow-hidden py-10">
+    <div className="relative h-full w-full max-w-117.5 overflow-hidden py-10">
       <div className="relative h-full w-full overflow-hidden   ">
         <img
           src={LoginPicture}
@@ -34,7 +34,7 @@ export default function LoginImage() {
       </div>
       <div
         className="absolute bottom-0 left-0 w-full z-20 
-               bg-gradient-to-b  from-transparent via-[#6090FA]/80 to-[#6090FA] 
+               bg-linear-to-b  from-transparent via-[#6090FA]/80 to-[#6090FA] 
               px-6 py-20"
       >
         <p className="text-white text-m mt-30 px-5 font-medium leading-snug italic">

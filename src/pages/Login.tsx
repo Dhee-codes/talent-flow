@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import Header from "../../components/LoginPage/LoginHeader";
-import OAuthButton from "../../components/LoginPage/LoginOauth";
-import InputField from "../../components/LoginPage/LoginInput";
-import PasswordInput from "../../components/LoginPage/LoginPassword";
-import LoginImage from "../../components/LoginPage/LoginImage";
-import Footer from "../../components/LoginPage/LoginFooter";
+import Header from "../components/LoginPage/LoginHeader";
+import OAuthButton from "../components/LoginPage/LoginOauth";
+import InputField from "../components/LoginPage/LoginInput";
+import PasswordInput from "../components/LoginPage/LoginPassword";
+import LoginImage from "../components/LoginPage/LoginImage";
+import Footer from "../components/LoginPage/LoginFooter";
 const isValidEmail = (value: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -13,7 +13,7 @@ interface FormErrors {
   email?: string;
   password?: string;
 }
-export default function LoginPage() {
+export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -88,11 +88,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white font-sans ">
-      <div className="flex w-full justify-center max-h-[710px] bg-white ">
+      <div className="flex w-full justify-center max-h-177.5 bg-white ">
         <div className="hidden md:block">
           <LoginImage />
         </div>
-        <div className="relative flex flex-col w-full md:w-[420px] flex-shrink-0 py-5 px-10 ">
+        <div className="relative flex flex-col w-full md:w-105 shrink-0 py-5 px-10 ">
           <Header />
           <div className="px-5 py-5 rounded-xl border border-gray-200 w-full mb-3">
             <OAuthButton />
@@ -141,7 +141,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-[46px] rounded-xl bg-[#6090FA] text-white text-[15px] font-medium hover:bg-[#3451C7] active:scale-[0.99] transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full h-11.5 rounded-xl bg-[#6090FA] text-white text-[15px] font-medium hover:bg-[#3451C7] active:scale-[0.99] transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isLoading ? "Logging in..." : "Login"}
               </button>
