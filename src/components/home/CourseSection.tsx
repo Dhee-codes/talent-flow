@@ -1,34 +1,28 @@
-import {
-  Palette,
-  Code,
-  Wallet,
-  BarChart3,
-  Search,
-  Play,
-  Star,
-  Clock,
-  BookOpen,
-} from "lucide-react";
+import { Search, Play, Clock, BookOpen, Star } from "lucide-react";
+import des from "../../assets/icons/design.svg";
+import dev from "../../assets/icons/development.svg";
+import fin from "../../assets/icons/finance.svg";
+import ana from "../../assets/icons/analysis.svg";
 
 const categories = [
   {
     name: "Design",
-    icon: <Palette className="w-8 h-8" />,
+    icon: des,
     color: "bg-success-light text-success",
   },
   {
     name: "Development",
-    icon: <Code className="w-8 h-8" />,
+    icon: dev,
     color: "bg-error-light text-error",
   },
   {
     name: "Finance",
-    icon: <Wallet className="w-8 h-8" />,
+    icon: fin,
     color: "bg-primary-light text-primary-dark",
   },
   {
     name: "Analysis",
-    icon: <BarChart3 className="w-8 h-8" />,
+    icon: ana,
     color: "bg-primary-lighter text-primary-darker",
   },
 ];
@@ -55,15 +49,15 @@ export const CourseSection = () => {
           {categories.map((cat) => (
             <div
               key={cat.name}
-              className={`${cat.color} min-h-55 rounded-lg flex flex-col items-center justify-center cursor-pointer transition-opacity hover:`}
+              className={`${cat.color} min-h-55 rounded-lg flex flex-col items-center justify-center cursor-pointer transition-opacity hover:opacity-80`}
             >
-              {cat.icon}
-              <span className="mt-4 font-semibold text-lg">{cat.name}</span>
+              <img src={cat.icon} alt="" aria-hidden="true" className="w-11 md:w-13" />
+              <span className="mt-4 text-[1.25rem] md:text-[1.75rem] leading-7 -tracking-[0.02em] font-medium">{cat.name}</span>
             </div>
           ))}
           <div className="min-h-55 bg-warning rounded-lg flex flex-col items-center justify-center">
-            <Search className="w-8 h-8 text-blue-400 mb-4" />
-            <button className="bg-blue-500 text-white px-6 py-2 rounded-lg text-sm">
+            <Search className="w-11 h-11 md:w-13 md:h-13 text-primary mb-4" />
+            <button className="bg-primary text-primary-foreground px-12.5 py-3.5 rounded-lg text-base leading-4.5">
               View All
             </button>
           </div>
