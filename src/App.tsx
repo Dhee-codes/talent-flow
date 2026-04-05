@@ -5,7 +5,6 @@ import Settings from "./pages/Settings";
 import Logout from "./pages/Logout";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
-import LoginPage from "./pages/Login/LoginPage";
 import LearningProgress from "./pages/LearningProgress";
 
 const router = createBrowserRouter([
