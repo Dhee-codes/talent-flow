@@ -1,4 +1,7 @@
-export default function LoginFooter() {
+interface LoginFooterProps {
+  title?: string;
+}
+export default function LoginFooter({ title }: LoginFooterProps) {
   return (
     <div>
       <p className="mt-6 text-[15px] text-gray-500 leading-relaxed">
@@ -6,7 +9,7 @@ export default function LoginFooter() {
       </p>
       <div className="flex items-center justify-center gap-1 mt-3">
         <span className="text-[15px] text-gray-500">Don't have an account?</span>
-        <button type="button" className="text-[13px] font-medium text-[#6090FA] hover:underline cursor-pointer">Sign up</button>
+        <button type="button" className="text-[13px] font-medium text-[#6090FA] hover:underline cursor-pointer">{title}</button>
       </div>
     </div>
   );

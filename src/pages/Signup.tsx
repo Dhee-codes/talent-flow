@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import Header from "../components/LoginPage/LoginHeader";
 import OAuthButton from "../components/LoginPage/LoginOauth";
@@ -6,23 +5,40 @@ import InputField from "../components/LoginPage/LoginInput";
 import PasswordInput from "../components/LoginPage/LoginPassword";
 import LoginImage from "../components/LoginPage/LoginImage";
 import Footer from "../components/LoginPage/LoginFooter";
+
 const isValidEmail = (value: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 interface FormErrors {
   email?: string;
+  phone?: string;
   password?: string;
+  confirmPassword?: string;
 }
-export default function Login() {
+
+export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (errors[field as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
+    }
+  };
+
   const handleEmailBlur = () => {
-    if (!email) return;
-    if (!isValidEmail(email)) {
+    if (!formData.email) return;
+    if (!isValidEmail(formData.email)) {
       setErrors((prev) => ({
         ...prev,
         email: "Please enter a valid email address.",
@@ -32,27 +48,23 @@ export default function Login() {
     }
   };
 
-  // Clear field error as user types
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
-  };
-
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-    if (errors.password)
-      setErrors((prev) => ({ ...prev, password: undefined }));
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Client-side validation before hitting backend
     const newErrors: FormErrors = {};
-    if (!email) newErrors.email = "Email is required.";
-    else if (!isValidEmail(email))
+
+    if (!formData.email) newErrors.email = "Email is required.";
+    else if (!isValidEmail(formData.email))
       newErrors.email = "Please enter a valid email address.";
-    if (!password) newErrors.password = "Password is required.";
+
+    if (!formData.phone) newErrors.phone = "Phone number is required.";
+
+    if (!formData.password) newErrors.password = "Password is required.";
+
+    if (!formData.confirmPassword)
+      newErrors.confirmPassword = "Please confirm your password.";
+    else if (formData.password !== formData.confirmPassword)
+      newErrors.confirmPassword = "Passwords do not match.";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -61,41 +73,18 @@ export default function Login() {
 
     setIsLoading(true);
     setErrors({});
-//uncommment this part once you get API
-    // try {
-      
-    //   const res = await fetch("/api/auth/login", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ email, password }),
-    //   });
-
-    //   const data = await res.json();
-
-    //   if (!res.ok) {
-    //     setErrors({
-    //       email: data.errors?.email,
-    //       password: data.errors?.password,
-    //     });
-    //   } else {
-    //   }
-    // } catch {
-    //   setErrors({ password: "Something went wrong. Please try again." });
-    // } finally {
-    //   setIsLoading(false);
-    // }
+    //api goes here
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-white font-sans ">
-      <div className="flex w-full justify-center max-h-177.5 bg-white ">
+      <div className="flex w-full justify-center max-h-220 bg-white ">
         <div className="hidden md:block">
           <LoginImage />
         </div>
-        <div className="relative flex flex-col w-full md:w-105 shrink-0 py-12 px-10 ">
+        <div className="relative flex flex-col w-full md:w-105 shrink-0 py-17 px-10 ">
           <Header
             title="Welcome"
-            subtitle="Login to your TalentFlow account and continue learning"
+            subtitle="Sign up to TalentFlow to create an account"
           />
           <div className="px-5 py-5 rounded-xl border border-gray-200 w-full mb-3">
             <OAuthButton />
@@ -104,9 +93,6 @@ export default function Login() {
                 id="email"
                 type="email"
                 placeholder="Enter your email"
-                error={errors.email}
-                onBlur={handleEmailBlur}
-                onChange={handleEmailChange}
                 icon={
                   <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
                     <rect
@@ -126,32 +112,48 @@ export default function Login() {
                     />
                   </svg>
                 }
+                error={errors.email}
+                onBlur={handleEmailBlur}
+                onChange={(e) => handleChange("email", e.target.value)}
+              />
+              <InputField
+                id="phone"
+                type="tel"
+                placeholder="Enter your phone number"
+                error={errors.phone}
+                onChange={(e) => handleChange("phone", e.target.value)}
               />
               <PasswordInput
+                id="password"
+                label="Password"
+                placeholder="Create a password"
                 showPassword={showPassword}
                 setShowPassword={setShowPassword}
                 error={errors.password}
-                onChange={handlePasswordChange}
+                onChange={(e) => handleChange("password", e.target.value)}
               />
-              <div className="flex justify-end mb-3">
-                <button
-                  type="button"
-                  className="text-[12.5px] text-[gray] hover:text-[#6090FA]"
-                >
-                  Forgot Password?
-                </button>
-              </div>
+              <PasswordInput
+                id="confirmPassword"
+                label="Confirm Password"
+                placeholder="Confirm your password"
+                showPassword={showConfirmPassword}
+                setShowPassword={setShowConfirmPassword}
+                error={errors.confirmPassword}
+                onChange={(e) =>
+                  handleChange("confirmPassword", e.target.value)
+                }
+              />
               <button
                 type="submit"
                 disabled={isLoading}
                 className="w-full h-11.5 rounded-xl bg-[#6090FA] text-white text-[15px] font-medium hover:bg-[#3451C7] active:scale-[0.99] transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {isLoading ? "Logging in..." : "Login"}
+                {isLoading ? "Creating account..." : "Sign Up"}
               </button>
             </form>
           </div>
-          <Footer 
-            title="Sign up"
+          <Footer
+            title="Login"
           />
         </div>
       </div>
