@@ -65,7 +65,7 @@ export const CourseSection = () => {
               </span>
             </div>
           ))}
-          <div className="md:max-w-57.5 aspect-230/220 bg-warning rounded-lg flex flex-col items-center justify-center">
+          <div className="md:max-w-57.5 aspect-230/220 bg-warning-light rounded-lg flex flex-col items-center justify-center">
             <Search className="w-11 h-11 md:w-13 md:h-13 text-primary mb-4" />
             <Link
               to="/courses"
