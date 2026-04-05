@@ -47,15 +47,15 @@ const courses = [
 
 export const CourseSection = () => {
   return (
-    <section className="bg-slate-50 py-16 px-8">
+    <section className="">
       {/* Top Categories */}
-      <div className="max-w-6xl mx-auto mb-16">
-        <h2 className="text-2xl font-bold mb-8">Top Category</h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="bg-card px-4 md:px-18 lg:px-20 py-6 md:py-20 lg:py-25">
+        <h2 className="text-[1.25rem] md:text-[2rem] leading-7 md:leading-10 font-semibold mb-6 md:mb-13">Top Category</h2>
+        <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(23px,1fr))] gap-y-6 gap-x-8">
           {categories.map((cat) => (
             <div
               key={cat.name}
-              className={`${cat.color} rounded-xl p-8 flex flex-col items-center justify-center cursor-pointer transition-transform hover:scale-105`}
+              className={`${cat.color} min-h-55 rounded-lg flex flex-col items-center justify-center cursor-pointer transition-opacity hover:`}
             >
               {cat.icon}
               <span className="mt-4 font-semibold text-lg">{cat.name}</span>

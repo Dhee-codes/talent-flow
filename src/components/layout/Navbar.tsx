@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Logo } from "../Logo";
 import { SearchBar } from "../ui/SearchBar";
 import { HamburgerToggle } from "../ui/HamburgerToggle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Drawer from "../ui/Drawer";
 import { ShoppingCart, Bell } from "lucide-react";
 
@@ -36,11 +36,25 @@ const GuestNav = ({
   isOpen: boolean;
   isAuthenticated: boolean;
 }) => {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && query.trim()) {
+      navigate(`/search?q=${query}`);
+    }
+  };
+
   return (
     <>
       <HeaderLeft onMenuClick={onMenuClick} isOpen={isOpen} />
 
-      <SearchBar isAuthenticated={isAuthenticated} />
+      <SearchBar
+        isAuthenticated={isAuthenticated}
+        query={query}
+        onChange={setQuery}
+        onKeyDown={handleKeyDown}
+      />
 
       <div className="flex-1 hidden md:block" />
 
@@ -58,6 +72,15 @@ const AuthNav = ({
   isOpen: boolean;
   isAuthenticated: boolean;
 }) => {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && query.trim()) {
+      navigate(`/search?q=${query}`);
+    }
+  };
+
   return (
     <>
       <HeaderLeft onMenuClick={onMenuClick} isOpen={isOpen} />
@@ -82,7 +105,12 @@ const AuthNav = ({
 
       <div className="flex gap-6">
         <div className="flex items-center space-x-4 md:ml-13 mr-0 md:mr-6">
-          <SearchBar isAuthenticated={isAuthenticated} />
+          <SearchBar
+            isAuthenticated={isAuthenticated}
+            query={query}
+            onChange={setQuery}
+            onKeyDown={handleKeyDown}
+          />
 
           <button className="text-gray-500 hover:text-gray-700">
             <ShoppingCart className="w-5 h-5" />
