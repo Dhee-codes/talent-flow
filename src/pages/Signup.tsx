@@ -77,11 +77,11 @@ export default function Signup() {
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-white font-sans ">
-      <div className="flex w-full justify-center max-h-220 bg-white ">
+      <div className="flex w-full justify-center max-h-250 bg-white ">
         <div className="hidden md:block">
           <LoginImage />
         </div>
-        <div className="relative flex flex-col w-full md:w-105 shrink-0 py-17 px-10 ">
+        <div className="relative flex flex-col w-full md:w-105 shrink-0 py-20 px-10 ">
           <Header
             title="Welcome"
             subtitle="Sign up to TalentFlow to create an account"
