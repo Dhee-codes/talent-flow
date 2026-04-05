@@ -7,7 +7,7 @@ import Logout from "./pages/Logout";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Signup from "./pages/Signup";
-
+import DeleteAccount from "./pages/DeleteAccount";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,7 @@ const router = createBrowserRouter([
       { path: "logout", element: <Logout /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <Signup /> },
+      { path: "delete-profile", element: <DeleteAccount /> },
     ],
   },
   {

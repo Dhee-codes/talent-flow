@@ -12,13 +12,16 @@
     --accent: #6b98fa;
     --card: #ffffff;
     --text-muted: #6B7280;
+    --text-muted-dark: #15171A;
     --text-heading:#07142f;
 
     --success: #1fb356;
     --success-light: #e9f9ef;
     --error: #d93e3e;
+    --error-dark: #EF4444;
     --error-light: #fac5c5;
     --warning: #fef5e7;
+    --warning-dark: #F59E0B;
 }
 
 @theme {
@@ -36,13 +39,16 @@
     --color-accent: var(--accent);
     --color-card: var(--card);
     --color-text-muted: var(--text-muted);
+    --color-text-muted-dark: var(--text-muted-dark);
     --color-text-heading: var(--text-heading);
 
     --color-success: var(--success);
     --color-success-light: var(--success-light);
     --color-error: var(--error);
+    --color-error-dark: var(--error-dark);
     --color-error-light: var(--error-light);
     --color-warning: var(--warning);
+    --color-warning-dark: var(--warning-dark);
 }
 
 body {
