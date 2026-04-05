@@ -88,11 +88,11 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white font-sans ">
-      <div className="flex w-full justify-center max-h-177.5 bg-white ">
+      <div className="flex w-full justify-center max-h-190.5 bg-white ">
         <div className="hidden md:block">
           <LoginImage />
         </div>
-        <div className="relative flex flex-col w-full md:w-105 shrink-0 py-12 px-10 ">
+        <div className="relative flex flex-col w-full md:w-105 shrink-0 py-15 px-10 ">
           <Header
             title="Welcome"
             subtitle="Login to your TalentFlow account and continue learning"
