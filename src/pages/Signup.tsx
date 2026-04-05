@@ -154,6 +154,8 @@ export default function Signup() {
           </div>
           <Footer
             title="Login"
+            subtitle="Already have an account?"
+              to="/login"
           />
         </div>
       </div>
