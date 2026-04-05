@@ -14,22 +14,22 @@ const categories = [
   {
     name: "Design",
     icon: <Palette className="w-8 h-8" />,
-    color: "bg-green-50 text-green-600",
+    color: "bg-success-light text-success",
   },
   {
     name: "Development",
     icon: <Code className="w-8 h-8" />,
-    color: "bg-red-50 text-red-500",
+    color: "bg-error-light text-error",
   },
   {
     name: "Finance",
     icon: <Wallet className="w-8 h-8" />,
-    color: "bg-blue-50 text-blue-500",
+    color: "bg-primary-light text-primary-dark",
   },
   {
     name: "Analysis",
     icon: <BarChart3 className="w-8 h-8" />,
-    color: "bg-indigo-50 text-indigo-700",
+    color: "bg-primary-lighter text-primary-darker",
   },
 ];
 
@@ -61,7 +61,7 @@ export const CourseSection = () => {
               <span className="mt-4 font-semibold text-lg">{cat.name}</span>
             </div>
           ))}
-          <div className="bg-orange-50 rounded-xl p-8 flex flex-col items-center justify-center">
+          <div className="min-h-55 bg-warning rounded-lg flex flex-col items-center justify-center">
             <Search className="w-8 h-8 text-blue-400 mb-4" />
             <button className="bg-blue-500 text-white px-6 py-2 rounded-lg text-sm">
               View All
