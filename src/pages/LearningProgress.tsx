@@ -1,8 +1,8 @@
 import { useState } from "react";
-import personImg from "../assets/person.png"
-import internet from "../assets/cyber.png";
-import man from "../assets/man.png"
-import windowImg from "../assets/window.png"
+import illustration from "../assets/images/progress/illustration.jpg"
+import uiux from "../assets/images/temp/uiux.jpg"
+import cybersec from "../assets/images/temp/cybersec.jpg"
+import iot from "../assets/images/temp/iot.jpg";
 
 const lessons = [
     {
@@ -13,7 +13,7 @@ const lessons = [
         startDate: "12th July, 2025",
         hoursSpent: 12,
         progress: 35,
-        courseThumb: man
+        courseThumb: uiux
     },
     {
         id: 2,
@@ -23,7 +23,7 @@ const lessons = [
         startDate: "3rd Aug, 2025",
         hoursSpent: 8,
         progress: 60,
-        courseThumb: windowImg
+        courseThumb: cybersec
     },
     {
         id: 3,
@@ -33,7 +33,7 @@ const lessons = [
         startDate: "20th Sept, 2025",
         hoursSpent: 5,
         progress: 100,
-        courseThumb: internet
+        courseThumb: iot
     },
 ];
 
@@ -68,7 +68,7 @@ const LearningProgress = () => {
                 </div>
 
                 <div className="w-24 h-20 sm:w-36 sm:h-24 shrink-0 flex items-center justify-center ml-4">
-                    <img src={personImg} alt="Welcome Banner" className="w-full h-full object-contain" />
+                    <img src={illustration} alt="Welcome Banner" className="w-full h-full object-contain" />
                 </div>
             </div>
 

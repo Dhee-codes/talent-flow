@@ -37,42 +37,43 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
         <div id="mobile-menu">
           {/* Links */}
           <div className="flex flex-col gap-8 bg-card h-screen w-4/5 px-6 pt-16.5">
-            <Link to="/">
-              <img
-                src={logo}
-                alt="TalentFlow"
-                className="w-20 h-auto"
-              />
+            <Link to="/" onClick={onClose}>
+              <img src={logo} alt="TalentFlow" className="w-20 h-auto" />
             </Link>
 
             {isAuthenticated ? (
               <div className="flex flex-col gap-9 p-3 text-base leading-6 -tracking-[0.02em] font-medium">
                 <Link
                   to="/dashboard"
+                  onClick={onClose}
                   className="hover:text-accent transition-colors"
                 >
                   Dashboard
                 </Link>
                 <Link
                   to="/courses"
+                  onClick={onClose}
                   className="hover:text-accent transition-colors"
                 >
                   My Courses
                 </Link>
                 <Link
-                  to="/assignment"
+                  to="/profile"
+                  onClick={onClose}
                   className="hover:text-accent transition-colors"
                 >
                   Profile
                 </Link>
                 <Link
                   to="/progress"
+                  onClick={onClose}
                   className="hover:text-accent transition-colors"
                 >
                   Learning Progress
                 </Link>
                 <Link
                   to="/chat"
+                  onClick={onClose}
                   className="hover:text-accent transition-colors"
                 >
                   Chat
@@ -82,13 +83,15 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
               <>
                 <div className="flex flex-col gap-9 p-3 text-base leading-6 -tracking-[0.02em] font-medium">
                   <Link
-                    to="/explore"
+                    to="/courses"
+                    onClick={onClose}
                     className="hover:text-accent transition-colors"
                   >
                     Explore
                   </Link>
                   <Link
                     to="/help"
+                    onClick={onClose}
                     className="hover:text-accent transition-colors"
                   >
                     Help and Support
@@ -96,6 +99,7 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
                 </div>
                 <Link
                   to="/login"
+                  onClick={onClose}
                   className="w-full text-center bg-primary hover:bg-accent text-primary-foreground text-base font-sans px-12.5 py-3.75 rounded-lg"
                 >
                   Login

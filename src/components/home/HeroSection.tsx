@@ -1,4 +1,5 @@
 import hero from "../../assets/images/home/hero.jpg";
+import { Link } from "react-router-dom";
 
 export function HeroSection() {
   return (
@@ -18,12 +19,13 @@ export function HeroSection() {
             to embark on a journey of career growth?
           </p>
 
-          <button
-            className="rounded-lg bg-primary px-5 py-3.75 text-base leading-4.5 font-medium text-primary-foreground transition hover:bg-accent"
+          <Link
+            to="/login"
+            className="rounded-lg bg-primary px-5 py-3.75 text-base leading-4.5 font-medium text-primary-foreground transition-colors hover:bg-accent"
             type="button"
           >
             Get Started
-          </button>
+          </Link>
         </div>
 
         <div>
