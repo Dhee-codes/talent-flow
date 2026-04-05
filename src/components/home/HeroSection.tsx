@@ -3,7 +3,7 @@ import hero from "../../assets/images/home/hero.jpg";
 export function HeroSection() {
   return (
     <section>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 lg:gap-19 px-4 md:px-16 lg:px-20 py-6 md:py-12 lg:py-17.5">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 lg:gap-19 px-4 md:px-16 lg:px-20 pt-6 md:pt-12 lg:pt-17.5">
         <div>
           <p className="text-lg md:text-2xl leading-6 md:leading-8 -tracking-[0.02em] font-medium text-foreground/75 mb-2">
             Learn your favorite course

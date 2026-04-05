@@ -4,11 +4,21 @@
     --background: #eff4ff;
     --foreground: #121212;
     --primary: #6090fa;
+    --primary-light: #ceddfd;
+    --primary-lighter: #eff4ff;
+    --primary-dark: #5783E4;
+    --primary-dzrker: #354F8A;
     --primary-foreground: #ffffff;
     --accent: #6b98fa;
     --card: #ffffff;
     --text-muted: #6B7280;
-     --text-heading:#07142f;
+    --text-heading:#07142f;
+
+    --success: #1fb356;
+    --success-light: #e9f9ef;
+    --error: #d93e3e;
+    --error-light: #fac5c5;
+    --warning: #fef5e7;
 }
 
 @theme {
@@ -18,11 +28,21 @@
     --color-background: var(--background);
     --color-foreground: var(--foregrond);
     --color-primary: var(--primary);
+    --color-primary-light: var(--primary-light);
+    --color-primary-lighter: var(--primary-lighter);
+    --color-primary-dark: var(--primary-dark);
+    --color-primary-darker: var(--primary-darker);
     --color-primary-foreground: var(--primary-foreground);
     --color-accent: var(--accent);
     --color-card: var(--card);
     --color-text-muted: var(--text-muted);
     --color-text-heading: var(--text-heading);
+
+    --color-success: var(--success);
+    --color-success-light: var(--success-light);
+    --color-error: var(--error);
+    --color-error-light: var(--error-light);
+    --color-warning: var(--warning);
 }
 
 body {
