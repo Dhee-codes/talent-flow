@@ -3,10 +3,10 @@ import { useSearchParams } from "react-router-dom";
 import { SearchBar } from "../components/ui/SearchBar";
 import { Link } from "react-router-dom";
 import { Heart, Play, Clock, Video, Star } from "lucide-react";
-import uiux from "../../assets/images/temp/uiux.jpg";
-import yt from "../../assets/images/temp/yt.jpg";
-import faceless from "../../assets/images/temp/faceless.jpg";
-import ai from "../../assets/images/temp/data-ai.jpg";
+import uiux from "../assets/images/temp/uiux.jpg";
+import yt from "../assets/images/temp/yt.jpg";
+import faceless from "../assets/images/temp/faceless.jpg";
+import ai from "../assets/images/temp/data-ai.jpg";
 
 const courses = [
   {
