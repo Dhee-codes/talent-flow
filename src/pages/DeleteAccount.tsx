@@ -16,7 +16,7 @@ const DeleteAccount = () => {
         </p>
         <Link
           to="/login"
-          className=" block w-full bg-warning-dark text-primary-foreground hover:bg-warning/80 text-base leading-6 font-semibold mt-9 py-3 md:py-4 rounded-lg"
+          className=" block w-full bg-warning text-primary-foreground hover:bg-warning/80 text-base leading-6 font-semibold mt-9 py-3 md:py-4 rounded-lg"
         >
           Close Account
         </Link>
