@@ -1,5 +1,4 @@
 import logo from "../../assets/logo.svg";
-import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type DrawerProps = {
@@ -28,9 +27,33 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
           onClick={onClose}
           aria-label="Close menu"
           aria-controls="mobile-menu"
-          className="absolute top-17 right-7 z-100 border-2 rounded-full p-1"
+          className=" absolute top-17 right-7 z-100 w-9 h-9 rounded-full border flex items-center justify-center cursor-pointer"
         >
-          <X aria-hidden="true" className="w-6 h-6" />
+          <svg
+            aria-hidden="true"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="1"
+              y="1"
+              width="48"
+              height="48"
+              rx="24"
+              stroke="black"
+              strokeWidth="2"
+            />
+            <path
+              d="M31 19L19 31M19 19L31 31"
+              stroke="#1E1E1E"
+              strokeWidth="2.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </button>
 
         {/* Drawer panel */}
