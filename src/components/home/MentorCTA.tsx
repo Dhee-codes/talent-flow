@@ -1,16 +1,16 @@
 export const MentorCTA = () => {
   return (
-    <section className="bg-blue-500 py-20 px-4">
-      <div className="max-w-6xl mx-auto bg-slate-50 rounded-xl p-12 flex flex-col md:flex-row justify-between items-center">
-        <div className="mb-6 md:mb-0">
-          <span className="text-blue-500 font-semibold text-lg">
+    <section className="bg-primary px-4 md:px-16 lg:px-20 py-10 md:pb-20">
+      <div className="bg-card rounded-lg px-2 md:px-16 lg:px-40 py-5 md:py-10 flex flex-col md:flex-row md:justify-between md:items-center">
+        <div className="px-2 mb-6 md:mb-0">
+          <span className="text-primary text-sm md:text-[1.25rem] lg:text-[1.75rem] leading-5 md:leading-9 -tracking-[0.02em] font-medium">
             Become A Mentor
           </span>
-          <h2 className="text-4xl font-bold text-slate-900 mt-2">
-            You can Join TalentFlow as a <br /> mentor
+          <h2 className="md:max-w-[20ch] text-[1.125rem] md:text-[1.6rem] lg:text-[2.25rem] leading-6 md:leading-8 lg:leading-11 -tracking-[0.02em] font-semibold mt-2">
+            You can Join TalentFlow as a mentor
           </h2>
         </div>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-lg shadow-blue-200">
+        <button className="max-sm:w-full bg-primary transition-colors hover:bg-accent text-primary-foreground md:px-3 lg:px-5 py-3.5 rounded-lg text-base leading-4.5">
           Become a Mentor
         </button>
       </div>
