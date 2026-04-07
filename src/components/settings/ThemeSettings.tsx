@@ -1,3 +1,4 @@
+import theme from "../../assets/images/settings/theme.png";
 import { Palette, CheckSquare, Square } from "lucide-react";
 
 export function ThemeSettings() {
@@ -13,7 +14,7 @@ export function ThemeSettings() {
 
       <div className="group mb-6 overflow-hidden rounded-[22px] border border-[#EEF1F5] bg-[linear-gradient(180deg,#ffffff_0%,#f8fbff_100%)] p-4 transition-colors duration-200 hover:border-[#DCE6FF]">
         <div className="flex justify-end pr-1">
-          <img src="/images/theme-preview.png" alt="Theme Preview" className="h-auto w-59 object-contain transition-transform duration-300 ease-out group-hover:scale-[1.02]" />
+          <img src={theme} alt="Theme Preview" className="h-auto w-59 object-contain transition-transform duration-300 ease-out group-hover:scale-[1.02]" />
         </div>
       </div>
 

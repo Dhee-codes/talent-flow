@@ -1,8 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Settings from "./pages/Settings";
+import Search from "./pages/Search";
+import LearningProgress from "./pages/LearningProgress";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
 import About from "./pages/About";
 
@@ -22,7 +26,14 @@ const router = createBrowserRouter([
     path: "/",
     children: [
       { path: "logout", element: <Logout /> },
+      { path: "login", element: <Login /> },
+      { path: "signup", element: <Signup /> },
+      { path: "delete-profile", element: <DeleteAccount /> },
     ],
+  },
+  {
+    path: "/",
+    children: [{ path: "search", element: <Search /> }],
   },
 ]);
 

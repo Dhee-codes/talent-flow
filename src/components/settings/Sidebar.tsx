@@ -1,3 +1,4 @@
+import user from "../../assets/images/temp/profile.png"
 import { NavLink } from "react-router-dom";
 
 export function Sidebar() {
@@ -15,7 +16,7 @@ export function Sidebar() {
       <div className="flex flex-col items-center">
         <div className="mb-4 h-40 w-40 overflow-hidden rounded-full border border-[#E3E7EF] bg-gray-100 object-cover shadow-[0_10px_24px_rgba(15,23,42,0.08)]">
           <img
-            src="/images/profile.png"
+            src={user}
             alt="Victor Labade"
             className="w-full h-full object-cover"
           />
