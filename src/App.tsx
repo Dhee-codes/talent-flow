@@ -9,8 +9,10 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
 import DeleteAccount from "./pages/DeleteAccount";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import About from "./pages/About";
 import CourseDetails from "./pages/CourseDetails";
+import Notifications from "./pages/Notification";
 
 
 const router = createBrowserRouter([
@@ -19,11 +21,13 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
+      {path: "dashboard", element: <Dashboard /> },
       { path: "profile", element: <Profile /> },
       { path: "progress", element: <LearningProgress /> },
       { path: "Settings", element: <Settings /> },
       { path: "about", element: <About /> },
       {path: "course/:id", element: <CourseDetails />},
+      { path: "notifications", element: <Notifications/> },
     ],
   },
   {
