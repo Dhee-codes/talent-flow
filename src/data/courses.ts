@@ -2,13 +2,18 @@ import uiux from "../assets/images/temp/uiux.jpg";
 import yt from "../assets/images/temp/yt.jpg";
 import faceless from "../assets/images/temp/faceless.jpg";
 import ai from "../assets/images/temp/data-ai.jpg";
+import robots from "../assets/images/temp/robots.png"
+import tables from "../assets/images/temp/tables.png"
+import webDesign from "../assets/images/temp/webDesign.png"
+import graphics from "../assets/images/temp/graphics.png"
+
 import type { Course } from "../utils/types";
 
 export const courses: Course[] = [
   {
     id: 1,
     title: "UI/UX Design for Beginners: From Beginner to Pro",
-    image: uiux,
+    image: webDesign,
     duration: "2hr 38mins",
     lessons: "10 Lessons",
     rating: 4.7,
@@ -63,7 +68,7 @@ export const courses: Course[] = [
   {
     id: 6,
     title: "Mastering JavaScript: From Basics to Advanced",
-    image: yt,
+    image: graphics,
     duration: "6hr 00mins",
     lessons: "30 Lessons",
     rating: 4.8,
@@ -74,7 +79,7 @@ export const courses: Course[] = [
   {
     id: 7,
     title: "Product Design: Build Real World Case Studies",
-    image: uiux,
+    image: robots,
     duration: "3hr 45mins",
     lessons: "16 Lessons",
     rating: 4.7,
@@ -85,7 +90,7 @@ export const courses: Course[] = [
   {
     id: 8,
     title: "AI for Beginners: Tools, Prompts, and Automation",
-    image: ai,
+    image: tables,
     duration: "2hr 20mins",
     lessons: "9 Lessons",
     rating: 4.6,

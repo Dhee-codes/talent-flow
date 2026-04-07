@@ -2,10 +2,10 @@ import graphics from "../../assets/images/temp/graphics.png";
 import uiuxImg from "../../assets/images/temp/uiux.png";
 
 const courses = [
-  { id: 1, title: "UI/UX", image: graphics },
-  { id: 2, title: "Graphics", image: uiuxImg },
-  { id: 3, title: "UI/UX", image: graphics },
-  { id: 4, title: "Graphics", image: uiuxImg },
+  { id: 1, title: "UI/UX", image: uiuxImg },
+  { id: 2, title: "Graphics", image: graphics },
+  { id: 3, title: "UI/UX", image: uiuxImg },
+  { id: 4, title: "Graphics", image: graphics },
   { id: 5, title: "UI/UX", image: uiuxImg },
 ];
 
