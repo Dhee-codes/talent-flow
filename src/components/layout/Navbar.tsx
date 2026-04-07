@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 import { Logo } from "../Logo";
 import { SearchBar } from "../ui/SearchBar";
 import { HamburgerToggle } from "../ui/HamburgerToggle";
@@ -134,7 +135,7 @@ const AuthNav = ({
 };
 
 const Navbar = () => {
-  const [isAuthenticated] = useState(true);
+  const { isAuthenticated } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
