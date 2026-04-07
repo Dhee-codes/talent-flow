@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
 import DeleteAccount from "./pages/DeleteAccount";
 import About from "./pages/About";
+import CourseDetails from "./pages/CourseDetails";
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "progress", element: <LearningProgress /> },
       { path: "Settings", element: <Settings /> },
       { path: "about", element: <About /> },
+      {path: "course/:id", element: <CourseDetails />},
     ],
   },
   {
