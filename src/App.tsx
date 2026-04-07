@@ -8,6 +8,7 @@ import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
+import DeleteAccount from "./pages/DeleteAccount";
 import About from "./pages/About";
 
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "profile", element: <Profile /> },
+      { path: "progress", element: <LearningProgress /> },
       { path: "Settings", element: <Settings /> },
       { path: "about", element: <About /> },
     ],
@@ -42,3 +44,4 @@ const App = () => {
 };
 
 export default App;
+  
