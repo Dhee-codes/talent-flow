@@ -2,19 +2,21 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './layout/Navbar'
 import Footer from './layout/Footer'
 
-const noLayoutRoutes = ['/login', '/register']
+const noNavbarRoutes = ['/login', '/register']
+const noFooterRoutes = ['/login', '/register', '/notifications']
 
 const Layout = () => {
   const location = useLocation()
-  const hideLayout = noLayoutRoutes.includes(location.pathname)
+  const hideNavbar = noNavbarRoutes.includes(location.pathname)
+  const hideFooter = noFooterRoutes.includes(location.pathname)
 
   return (
     <div className='flex flex-col min-h-screen'>
-      {!hideLayout && <Navbar />}
+      {!hideNavbar && <Navbar />}
       <div className='flex-1'>
         <Outlet />
       </div>
-      {!hideLayout && <Footer />}
+      {!hideFooter && <Footer />}
     </div>
   )
 }
