@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Logout from "./pages/Logout";
 import DeleteAccount from "./pages/DeleteAccount";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import About from "./pages/About";
 
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
+      {path: "dashboard", element: <Dashboard /> },
       { path: "profile", element: <Profile /> },
       { path: "progress", element: <LearningProgress /> },
       { path: "Settings", element: <Settings /> },
