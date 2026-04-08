@@ -11,6 +11,7 @@ import Logout from "./pages/Logout";
 import DeleteAccount from "./pages/DeleteAccount";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import About from "./pages/About";
+import CourseDetails from "./pages/CourseDetails";
 import Notifications from "./pages/Notification";
 
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "progress", element: <LearningProgress /> },
       { path: "Settings", element: <Settings /> },
       { path: "about", element: <About /> },
+      {path: "course/:id", element: <CourseDetails />},
       { path: "notifications", element: <Notifications/> },
     ],
   },
