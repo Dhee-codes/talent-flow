@@ -24,7 +24,7 @@ export const CourseList = ({ courses, query }: CourseListProps) => {
       {courses.map((course) => (
         <div
           key={course.id}
-          className="max-w-68.5 md:max-w-74 aspect-274/515 md:aspect-296/515 bg-card rounded-lg px-3 py-4 overflow-hidden"
+          className=" bg-card rounded-lg px-3 py-4 overflow-hidden"
         >
           <div className="relative rounded-sm overflow-hidden group">
             <img

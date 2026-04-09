@@ -68,7 +68,7 @@ export const CourseSection = () => {
       </div>
 
       {/* Featured Courses */}
-      <div className="px-4 md:px-18 lg:px-20 py-6 md:py-20 lg:py-25">
+      <div className="px-4 md:px-18 py-6 md:py-20 lg:py-25">
         <div className="flex justify-between items-center bg-card px-2 md:px-4 py-4.5 md:py-3.5 mb-10.5 md:mb-7">
           <h2 className="text-[1.25rem] md:text-[2rem] leading-7 md:leading-10 font-semibold">
             Feature Courses
