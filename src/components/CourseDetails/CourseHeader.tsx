@@ -17,7 +17,7 @@ export default function CourseHeader({ course }: any) {
 
         <div className="flex gap-5">
           <Link
-            to="/progress"
+            to="/payment"
             className="bg-blue-500 text-white px-7 py-2 rounded-lg flex items-center gap-2"
           >
             Enroll Now
