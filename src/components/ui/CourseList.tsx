@@ -4,7 +4,7 @@ import { type CourseProps } from "../../lib/courses";
 
 interface CourseListProps {
   courses: CourseProps[];
-  query?: string
+  query?: string;
 }
 
 export const CourseList = ({ courses, query }: CourseListProps) => {
@@ -18,7 +18,7 @@ export const CourseList = ({ courses, query }: CourseListProps) => {
       </div>
     );
   }
-  
+
   return (
     <div className="grid max-sm:grid-flow-col max-sm:auto-cols-max md:grid-cols-[repeat(auto-fit,minmax(296px,1fr))] lg:grid-cols-4 gap-6 overflow-x-auto">
       {courses.map((course) => (

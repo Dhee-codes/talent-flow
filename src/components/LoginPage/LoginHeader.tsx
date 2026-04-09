@@ -6,7 +6,7 @@ interface LoginHeaderProps {
 export default function LoginHeader({ title = "Welcome", subtitle }: LoginHeaderProps) {
   return (
     <div className="w-full mb-5 relative h-30 flex flex-col items-start justify-center">
-      <button className=" absolute top-0 right-0 w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer">
+      <button onClick={() => history.back()} className="absolute top-0 right-0 w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer">
         <svg
           width="50"
           height="50"
