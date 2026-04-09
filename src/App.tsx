@@ -14,6 +14,9 @@ import About from "./pages/About";
 import CourseDetails from "./pages/CourseDetails";
 import Notifications from "./pages/Notification";
 
+import Payment from "./pages/Payment";
+import PaymentSuccess from "./components/payment/success/PaymentSuccess";
+
 
 const router = createBrowserRouter([
   {
@@ -25,9 +28,10 @@ const router = createBrowserRouter([
       { path: "profile", element: <Profile /> },
       { path: "progress", element: <LearningProgress /> },
       { path: "Settings", element: <Settings /> },
+
       { path: "about", element: <About /> },
-      { path: "courses/:id", element: <CourseDetails /> },
-      { path: "notifications", element: <Notifications/> },
+      { path: "course/:id", element: <CourseDetails /> },
+      { path: "notifications", element: <Notifications /> },
     ],
   },
   {
@@ -36,6 +40,8 @@ const router = createBrowserRouter([
       { path: "logout", element: <Logout /> },
       { path: "login", element: <Login /> },
       { path: "signup", element: <Signup /> },
+      { path: "payment", element: <Payment /> },
+      { path: "payment/success", element: <PaymentSuccess /> },
       { path: "delete-profile", element: <DeleteAccount /> },
     ],
   },
@@ -50,4 +56,3 @@ const App = () => {
 };
 
 export default App;
-  
