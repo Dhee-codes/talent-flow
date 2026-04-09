@@ -1,5 +1,3 @@
-"use client";
-
 interface LoginHeaderProps {
   title?: string;
   subtitle: string;

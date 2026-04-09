@@ -1,5 +1,3 @@
-import React from "react";
-
 interface LoginInputProps {
   id: string;
   type: string;

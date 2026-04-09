@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import Header from "../components/LoginPage/LoginHeader";
 import OAuthButton from "../components/LoginPage/LoginOauth";
@@ -6,6 +5,9 @@ import InputField from "../components/LoginPage/LoginInput";
 import PasswordInput from "../components/LoginPage/LoginPassword";
 import LoginImage from "../components/LoginPage/LoginImage";
 import Footer from "../components/LoginPage/LoginFooter";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+
 const isValidEmail = (value: string) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
@@ -19,6 +21,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleEmailBlur = () => {
     if (!email) return;
@@ -44,10 +49,9 @@ export default function Login() {
       setErrors((prev) => ({ ...prev, password: undefined }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Client-side validation before hitting backend
     const newErrors: FormErrors = {};
     if (!email) newErrors.email = "Email is required.";
     else if (!isValidEmail(email))
@@ -61,29 +65,31 @@ export default function Login() {
 
     setIsLoading(true);
     setErrors({});
-//uncommment this part once you get API
-    // try {
-      
-    //   const res = await fetch("/api/auth/login", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ email, password }),
-    //   });
 
-    //   const data = await res.json();
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ email, password }),
+      });
 
-    //   if (!res.ok) {
-    //     setErrors({
-    //       email: data.errors?.email,
-    //       password: data.errors?.password,
-    //     });
-    //   } else {
-    //   }
-    // } catch {
-    //   setErrors({ password: "Something went wrong. Please try again." });
-    // } finally {
-    //   setIsLoading(false);
-    // }
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrors({
+          email: data.errors?.email,
+          password: data.errors?.password ?? "Invalid email or password.",
+        });
+      } else {
+        login(data.user);
+        navigate("/");
+      }
+    } catch {
+      setErrors({ password: "Something went wrong. Please try again." });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -150,10 +156,10 @@ export default function Login() {
               </button>
             </form>
           </div>
-          <Footer 
+          <Footer
             title="Sign up"
             subtitle="Don't have an account?"
-              to="/signup"
+            to="/signup"
           />
         </div>
       </div>

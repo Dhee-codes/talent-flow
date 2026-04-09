@@ -25,8 +25,9 @@ const Search = () => {
         alwaysShow
         fullWidth
       />
-
-      <CourseList courses={filteredCourses} />
+      <div className="mt-12">
+        <CourseList courses={filteredCourses} query={query} />
+      </div>
     </div>
   );
 };

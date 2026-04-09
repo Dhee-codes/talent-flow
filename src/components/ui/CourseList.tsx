@@ -4,9 +4,21 @@ import { type CourseProps } from "../../lib/courses";
 
 interface CourseListProps {
   courses: CourseProps[];
+  query?: string
 }
 
-export const CourseList = ({ courses }: CourseListProps) => {
+export const CourseList = ({ courses, query }: CourseListProps) => {
+  if (courses.length === 0 && query?.trim()) {
+    return (
+      <div className="flex flex-col items-center justify-center py-20 text-center">
+        <p className="text-lg font-semibold text-gray-800">No courses found</p>
+        <p className="text-sm text-gray-400 mt-1">
+          Try searching with different keywords
+        </p>
+      </div>
+    );
+  }
+  
   return (
     <div className="grid max-sm:grid-flow-col max-sm:auto-cols-max md:grid-cols-[repeat(auto-fit,minmax(296px,1fr))] lg:grid-cols-4 gap-6 overflow-x-auto">
       {courses.map((course) => (
