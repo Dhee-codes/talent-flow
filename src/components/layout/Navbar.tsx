@@ -3,11 +3,17 @@ import { useAuth } from "../../hooks/useAuth";
 import { Logo } from "../Logo";
 import { SearchBar } from "../ui/SearchBar";
 import { HamburgerToggle } from "../ui/HamburgerToggle";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import Drawer from "../ui/Drawer";
 import { ShoppingCart, Bell } from "lucide-react";
 
-const HeaderLeft = ({ onMenuClick, isOpen }: { onMenuClick: () => void, isOpen: boolean }) => {
+const HeaderLeft = ({
+  onMenuClick,
+  isOpen,
+}: {
+  onMenuClick: () => void;
+  isOpen: boolean;
+}) => {
   return (
     <div className="flex items-baseline gap-4.5 md:mr-11">
       <HamburgerToggle onClick={onMenuClick} isOpen={isOpen} />
@@ -82,26 +88,40 @@ const AuthNav = ({
     }
   };
 
+  const active = "bg-[#5A8CFF] text-white px-2.25 py-1 rounded-lg";
+
   return (
     <>
       <HeaderLeft onMenuClick={onMenuClick} isOpen={isOpen} />
 
-      <div className="flex-1 hidden md:flex justify-between gap-1 flex-wrap text-xs lg:text-base leading-6 -tracking-[0.02em] font-medium">
-        <Link to="/dashboard" className="hover:text-accent transition-colors">
+      <div className="flex-1 hidden md:flex justify-between items-center gap-1 flex-wrap text-xs lg:text-base leading-6 -tracking-[0.02em] font-medium">
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) => `${isActive ? active : ""}`}
+        >
           Dashboard
-        </Link>
-        <Link to="/courses" className="hover:text-accent transition-colors">
+        </NavLink>
+        <NavLink
+          to="/courses"
+          className={({ isActive }) => `${isActive ? active : ""}`}
+        >
           My Course
-        </Link>
-        <Link to="/assignment" className="hover:text-accent transition-colors">
+        </NavLink>
+        <NavLink
+          to="/assignment"
+          className={({ isActive }) => `${isActive ? active : ""}`}
+        >
           Assignment
-        </Link>
-        <Link to="/progress" className="hover:text-accent transition-colors">
+        </NavLink>
+        <NavLink
+          to="/progress"
+          className={({ isActive }) => `${isActive ? active : ""}`}
+        >
           Learning Progress
-        </Link>
-        <Link to="/chat" className="hover:text-accent transition-colors">
+        </NavLink>
+        <NavLink to="/chat" className={({ isActive }) => `${isActive ? active : ""}`}>
           Chat
-        </Link>
+        </NavLink>
       </div>
 
       <div className="flex gap-6">
@@ -129,12 +149,12 @@ const AuthNav = ({
           </button>
         </div>
 
-        <Link
+        <NavLink
           to="/profile"
           className="w-8 md:w-10 aspect-square bg-[#283C69] rounded-full shadow-[0_0_2px_4px_rgb(96,144,250,.5)] flex justify-center items-center text-white text-xl md:text-2xl -tracking-[0.02em] font-medium"
         >
           A
-        </Link>
+        </NavLink>
       </div>
     </>
   );
