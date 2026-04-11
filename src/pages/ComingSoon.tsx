@@ -7,6 +7,7 @@ const pageNames: Record<string, string> = {
   "/verify-certificate": "Verify Certificate",
   "/blog": "Blog",
   "/contact": "Contact Us",
+  "/assignment": "Assignment",
 };
 
 const ComingSoon = () => {
