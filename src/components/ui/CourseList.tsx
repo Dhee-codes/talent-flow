@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Heart, Play, Clock, Video, Star } from "lucide-react";
 import { type CourseProps } from "../../lib/courses";
@@ -8,6 +9,11 @@ interface CourseListProps {
 }
 
 export const CourseList = ({ courses, query }: CourseListProps) => {
+  const location = useLocation();
+
+  const isSearchPage = location.pathname === "/search";
+  const searchLayout = isSearchPage;
+
   if (courses.length === 0 && query?.trim()) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
@@ -20,11 +26,13 @@ export const CourseList = ({ courses, query }: CourseListProps) => {
   }
 
   return (
-    <div className="grid max-sm:grid-flow-col max-sm:auto-cols-max md:grid-cols-[repeat(auto-fit,minmax(296px,1fr))] lg:grid-cols-4 gap-6 overflow-x-auto">
+    <div
+      className={`grid place-items-center ${searchLayout ? "grid-cols-[repeat(auto-fit,minmax(296px,1fr))]" : "max-sm:grid-flow-col max-sm:auto-cols-max md:grid-cols-[repeat(auto-fit,minmax(296px,1fr))] lg:grid-cols-4 gap-6 overflow-x-auto"}`}
+    >
       {courses.map((course) => (
         <div
           key={course.id}
-          className=" bg-card rounded-lg px-3 py-4 overflow-hidden"
+          className="max-w-68.5 md:max-w-80 bg-card rounded-lg px-3 py-4 overflow-hidden"
         >
           <div className="relative rounded-sm overflow-hidden group">
             <img

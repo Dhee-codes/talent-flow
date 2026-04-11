@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/LoginPage/LoginHeader";
 import OAuthButton from "../components/LoginPage/LoginOauth";
 import InputField from "../components/LoginPage/LoginInput";
@@ -19,6 +20,8 @@ interface FormErrors {
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -145,6 +148,7 @@ export default function Signup() {
               />
               <button
                 type="submit"
+                onClick={() => navigate("/login")}
                 disabled={isLoading}
                 className="w-full h-11.5 rounded-xl bg-[#6090FA] text-white text-[15px] font-medium hover:bg-[#3451C7] active:scale-[0.99] transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
@@ -155,7 +159,7 @@ export default function Signup() {
           <Footer
             title="Login"
             subtitle="Already have an account?"
-              to="/login"
+            to="/login"
           />
         </div>
       </div>

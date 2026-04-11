@@ -3,7 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { Logo } from "../Logo";
 import { SearchBar } from "../ui/SearchBar";
 import { HamburgerToggle } from "../ui/HamburgerToggle";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Drawer from "../ui/Drawer";
 import { ShoppingCart, Bell } from "lucide-react";
 
@@ -113,11 +113,17 @@ const AuthNav = ({
             onKeyDown={handleKeyDown}
           />
 
-          <button className="text-gray-500 hover:text-gray-700">
+          <button
+            onClick={() => navigate("/cart")}
+            className="text-gray-500 hover:text-gray-700"
+          >
             <ShoppingCart className="w-5 h-5" />
           </button>
 
-          <button  onClick={() => navigate("/notifications")} className="relative text-gray-500 hover:text-gray-700">
+          <button
+            onClick={() => navigate("/notifications")}
+            className="relative text-gray-500 hover:text-gray-700"
+          >
             <Bell className="w-5 h-5" />
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white translate-x-1/4 -translate-y-1/4"></div>
           </button>
@@ -134,14 +140,19 @@ const AuthNav = ({
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ forceGuest = false }: { forceGuest?: boolean }) => {
   const { isAuthenticated } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
+  const showGuestNav = forceGuest || isHomePage;
 
   return (
     <header>
       <nav className="flex items-center justify-between px-8 md:px-14 lg:px-20 py-6">
-        {isAuthenticated ? (
+        {!showGuestNav ? (
           <AuthNav
             onMenuClick={() => setDrawerOpen(true)}
             isOpen={drawerOpen}

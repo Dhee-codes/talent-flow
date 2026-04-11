@@ -106,14 +106,14 @@ const Drawer = ({ isOpen, isAuthenticated, onClose }: DrawerProps) => {
               <>
                 <div className="flex flex-col gap-9 p-3 text-base leading-6 -tracking-[0.02em] font-medium">
                   <Link
-                    to="/courses"
+                    to="/"
                     onClick={onClose}
                     className="hover:text-accent transition-colors"
                   >
                     Explore
                   </Link>
                   <Link
-                    to="/help"
+                    to="/"
                     onClick={onClose}
                     className="hover:text-accent transition-colors"
                   >

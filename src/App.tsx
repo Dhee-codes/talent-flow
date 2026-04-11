@@ -13,9 +13,10 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import About from "./pages/About";
 import CourseDetails from "./pages/CourseDetails";
 import Notifications from "./pages/Notification";
-
 import Payment from "./pages/Payment";
 import PaymentSuccess from "./components/payment/success/PaymentSuccess";
+
+import ComingSoon from "./pages/ComingSoon";
 
 
 const router = createBrowserRouter([
@@ -30,8 +31,15 @@ const router = createBrowserRouter([
       { path: "Settings", element: <Settings /> },
 
       { path: "about", element: <About /> },
-      { path: "course/:id", element: <CourseDetails /> },
+      { path: "courses/:id", element: <CourseDetails /> },
       { path: "notifications", element: <Notifications /> },
+
+      { path: "cart", element: <ComingSoon /> },
+      { path: "courses", element: <ComingSoon /> },
+      { path: "chat", element: <ComingSoon /> },
+      { path: "verify-certificate", element: <ComingSoon /> },
+      { path: "blog", element: <ComingSoon /> },
+      { path: "contact", element: <ComingSoon /> },
     ],
   },
   {

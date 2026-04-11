@@ -21,7 +21,7 @@ const Footer = () => {
             Blog
           </Link>
           <Link
-            to="/privacy-policy"
+            to="/"
             className="hover:text-accent transition-colors"
           >
             Privacy Policies

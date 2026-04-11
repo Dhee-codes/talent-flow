@@ -149,6 +149,7 @@ export default function Login() {
               </div>
               <button
                 type="submit"
+                onClick={() => navigate("/dashboard")}
                 disabled={isLoading}
                 className="w-full h-11.5 rounded-xl bg-[#6090FA] text-white text-[15px] font-medium hover:bg-[#3451C7] active:scale-[0.99] transition cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               >
