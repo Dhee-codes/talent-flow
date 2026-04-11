@@ -40,6 +40,7 @@ const router = createBrowserRouter([
       { path: "verify-certificate", element: <ComingSoon /> },
       { path: "blog", element: <ComingSoon /> },
       { path: "contact", element: <ComingSoon /> },
+      { path: "assignment", element: <ComingSoon /> },
     ],
   },
   {
