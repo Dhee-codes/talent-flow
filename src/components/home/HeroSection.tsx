@@ -1,4 +1,6 @@
-import hero from "../../assets/images/home/hero.jpg";
+import hero from "../../assets/images/home/hero.png";
+import aest from "../../assets/images/home/hero-aest.png"
+import mobHero from "../../assets/images/home/mobile-hero.png";
 import { Link } from "react-router-dom";
 
 export function HeroSection() {
@@ -15,8 +17,8 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base leading-6 -tracking-[0.02em] mb-8">
-            With lots of expert mentors, and flexible, engaging content. <br /> Ready
-            to embark on a journey of career growth?
+            With lots of expert mentors, and flexible, engaging content. <br />{" "}
+            Ready to embark on a journey of career growth?
           </p>
 
           <Link
@@ -28,8 +30,18 @@ export function HeroSection() {
           </Link>
         </div>
 
-        <div>
-          <img src={hero} alt="Hero illustration" className="w-full" />
+        <div className="relative">
+          <img
+            src={hero}
+            alt="Hero illustration"
+            className="hidden md:block w-full"
+          />
+          <img
+            src={aest}
+            alt=""
+            className="hidden md:block absolute top-5/9 -left-4 -z-1"
+          />
+          <img src={mobHero} alt="Hero illustration" className="md:hidden w-full" />
         </div>
       </div>
     </section>
